@@ -35,11 +35,15 @@ def main():
     parser.add_argument("--model", type=str, default="base", help="Whisper model size to use")
     parser.add_argument("--lang", type=str, default="es", help="Idioma del audio (codigo ISO 639-1)")
     parser.add_argument("--summary-model", type=str, default="google/mt5-small", help="Transformers model for summarization")
+    parser.add_argument("--output", type=Path, help="Archivo de salida para guardar la transcripcion y el resumen")
     args = parser.parse_args()
 
     audio_path = extract_audio(args.video, args.audio)
     text = transcribe_audio(audio_path, args.model, args.lang)
     summary = summarize_text(text, args.summary_model)
+    if args.output:
+        with args.output.open("w", encoding="utf-8") as f:
+            f.write(text + "\n\n" + summary)
 
     print("\nTranscription:\n", text)
     print("\nSummary:\n", summary)

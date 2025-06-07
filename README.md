@@ -22,6 +22,7 @@ Opciones:
 - `--model NAME` : tamaño del modelo Whisper a usar (por defecto `base`).
 - `--lang COD` : código de idioma ISO 639-1 del audio (por defecto `es`).
 - `--summary-model NAME` : modelo de transformers para resumir (por defecto `google/mt5-small`).
+- `--output PATH` : archivo para guardar la transcripción y el resumen (opcional).
 
 ### Ejemplos
 
@@ -35,6 +36,11 @@ Usar un modelo de Whisper distinto y guardar el audio temporal en `mi_audio.wav`
 
 ```bash
 python video_pipeline/process_video.py ruta/al/video.mp4 --model small --audio mi_audio.wav
+```
+Guardar la salida en un archivo `resultado.txt`:
+
+```bash
+python video_pipeline/process_video.py ruta/al/video.mp4 --output resultado.txt
 ```
 
 ### Dependencias
