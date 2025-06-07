@@ -8,9 +8,8 @@ from transformers import pipeline
 
 def extract_audio(video_path: Path, audio_path: Path) -> Path:
     """Extract audio from an mp4 file and save it as wav."""
-    clip = VideoFileClip(str(video_path))
-    clip.audio.write_audiofile(str(audio_path))
-    clip.close()
+    with VideoFileClip(str(video_path)) as clip:
+        clip.audio.write_audiofile(str(audio_path))
     return audio_path
 
 

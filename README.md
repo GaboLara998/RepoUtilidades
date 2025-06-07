@@ -46,20 +46,24 @@ python video_pipeline/process_video.py ruta/al/video.mp4 --output resultado.txt
 ### Dependencias
 
 Puede instalar las dependencias ejecutando el script `setup.sh` incluido en el
-repositorio:
+repositorio o instalándolas directamente con `pip` utilizando el archivo
+`requirements.txt`:
 
 ```bash
 bash setup.sh
+# o bien
+pip install -r requirements.txt
 ```
 
-Este script utiliza `pip` para instalar `moviepy`, `openai-whisper`,
-`transformers` y `torch`. Si lo prefiere, puede instalarlos manualmente con:
+El listado de paquetes incluye `moviepy`, `openai-whisper`, `transformers`,
+`torch` y `tkinterdnd2` (necesario para arrastrar archivos en la interfaz
+gráfica). El script descargará los modelos necesarios la primera vez que se
+ejecute.
 
-```bash
-pip install moviepy openai-whisper transformers torch
-```
-
-El script descargará los modelos necesarios la primera vez que se ejecute.
+Además debe tener instalado `ffmpeg` y disponible en la variable `PATH`, ya que
+`moviepy` lo utiliza para extraer el audio del video. Puede instalarlo desde el
+gestor de paquetes de su sistema o descargarlo desde
+<https://ffmpeg.org/download.html>.
 
 ### Pasos para ejecutar
 
@@ -81,6 +85,8 @@ El script descargará los modelos necesarios la primera vez que se ejecute.
 
    ```bash
    bash setup.sh
+   # o bien
+   pip install -r requirements.txt
    ```
 
 4. Ejecutar el pipeline indicando la ruta del video
