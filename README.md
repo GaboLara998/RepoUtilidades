@@ -41,7 +41,6 @@ Guardar la salida en un archivo `resultado.txt`:
 
 ```bash
 python video_pipeline/process_video.py ruta/al/video.mp4 --output resultado.txt
-```
 
 ### Dependencias
 
@@ -60,7 +59,6 @@ pip install moviepy openai-whisper transformers torch
 ```
 
 El script descargará los modelos necesarios la primera vez que se ejecute.
-
 ### Pasos para ejecutar
 
 1. Clonar el repositorio en la carpeta que prefiera y entrar en él
